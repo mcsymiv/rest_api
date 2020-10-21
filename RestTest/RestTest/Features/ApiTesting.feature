@@ -31,7 +31,7 @@ Scenario: Create a user with assigned task
 
 Scenario: A User add avatar
 	When I send REST request with my avatar
-	Then I get status OK
+	Then I get ok status
 
 Scenario: A user deletes avatar
 	When I send REST request to delete avatar
