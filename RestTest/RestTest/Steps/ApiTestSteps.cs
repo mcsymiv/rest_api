@@ -46,7 +46,7 @@ namespace RestTest.Steps
         [When(@"I send user credentials to the site")]
         public void WhenISendUserCredentialsToTheSite()
         {
-            request = new RestRequest("tasks/rest/doregister", Method.POST);
+            request = new RestRequest("/tasks/rest/doregister", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(UsersData);
             response = client.Execute(request);
@@ -73,7 +73,7 @@ namespace RestTest.Steps
         [When(@"I sent POST request with company data")]
         public void WhenISentPOSTRequestWithCompanyData()
         {
-            request = new RestRequest("tasks/rest/createcompany", Method.POST);
+            request = new RestRequest("/tasks/rest/createcompany", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(CompanyData);
             response = client.Execute(request);
@@ -127,7 +127,7 @@ namespace RestTest.Steps
         [When(@"I send POST request with task information")]
         public void WhenISendPOSTRequestWithTaskInformation()
         {
-            request = new RestRequest("tasks/rest/createtask", Method.POST);
+            request = new RestRequest("/tasks/rest/createtask", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(TaskData);
             response = client.Execute(request);
@@ -156,7 +156,7 @@ namespace RestTest.Steps
         [When(@"I send REST request with user and task description")]
         public void WhenISendRESTRequestWithUserAndTaskDescription()
         {
-            request = new RestRequest("tasks/rest/createuserwithtasks", Method.POST);
+            request = new RestRequest("/tasks/rest/createuserwithtasks", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(UserWithTaskData);
             response = client.Execute(request);
@@ -175,7 +175,7 @@ namespace RestTest.Steps
         public void WhenISendRESTRequestWithMyAvatar()
         {
             string email = "maksymiv@test.com";
-            request = new RestRequest("tasks/rest/addavatar/?email=" + email, Method.POST);
+            request = new RestRequest("/tasks/rest/addavatar/?email=" + email, Method.POST);
             request.AddFile("avatar", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"C:\Users\mcsymiv\Downloads\photo5460908032348236852.jpg"));
             response = client.Execute(request);
         }
@@ -192,7 +192,7 @@ namespace RestTest.Steps
         public void WhenISendRESTRequestToDeleteAvatar()
         {
             string email = "maksymiv@test.com";
-            request = new RestRequest("tasks/rest/deleteavatar?email=" + email, Method.POST);
+            request = new RestRequest("/tasks/rest/deleteavatar?email=" + email, Method.POST);
             response = client.Execute(request);
         }
 
@@ -207,7 +207,7 @@ namespace RestTest.Steps
         [When(@"I send REST with (.*) in query")]
         public void WhenISendRESTWithInQuery(string query)
         {
-            request = new RestRequest("tasks/rest/magicsearch", Method.POST);
+            request = new RestRequest("/tasks/rest/magicsearch", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(
                 new Dictionary<string, object>
